@@ -9,7 +9,9 @@ Description: Rebuilds the trip calculator with methods and arrays so it
 
 
 
- //Trip Calculator 
+//Trip Calculator 
+
+using System.Security;
 
 const double pizza = 8 ;
 const double taxRate = .18 ;
@@ -62,10 +64,22 @@ Console.WriteLine("People going: " + peopleGoing) ;
 Console.WriteLine("Slices Each: " + slicesEach.ToString("F1"));
 Console.WriteLine("Cost per person: " + costPerPerson.ToString("C")) ;
 
+// Part 3
+
+Console.WriteLine("=== Part 3: Who Works How Long ===") ;
 
 
+double totalHours = 0;
+double totalTakeHome = 0 ;
+double longestHours = 0;
 
+for (int i = 0; i < names.Length; i++)
+{
+}
 
+Console.WriteLine("Total hours worked: " + totalHours.ToString("F0"));
+Console.WriteLine("Total take home pay: " + totalTakeHome.ToString("C"));
+Console.WriteLine("Longest anyone must work: " + longestHours.ToString("F2"));
 
 static double FuelCost(double miles, double MilesPerGallon, double PricePerGallon)
 {
