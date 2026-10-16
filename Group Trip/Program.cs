@@ -75,11 +75,31 @@ double longestHours = 0;
 
 for (int i = 0; i < names.Length; i++)
 {
+  double takeHomePay = TakeHomePay(hoursWorked[i], hourlyRates[i], taxRate) ;
+
+  double takeHomePerHour = takeHomePay / hoursWorked[i] ;
+
+  double mustWorkHours = HoursToCover(costPerPerson, takeHomePerHour) ;
+
+  totalHours = totalHours + hoursWorked[i] ;
+  totalTakeHome = totalTakeHome + takeHomePay ;
+
+  longestHours = Math.Max(longestHours , mustWorkHours) ;
+
+Console.WriteLine(names[i] + ": takes home "
++ takeHomePay.ToString("C")
++ " for " + hoursWorked[i].ToString("F0")
++ " hours, " + takeHomePerHour.ToString("C")
++ " per hour, must work "
++ mustWorkHours.ToString("F2") + " hours ");
+
 }
 
 Console.WriteLine("Total hours worked: " + totalHours.ToString("F0"));
 Console.WriteLine("Total take home pay: " + totalTakeHome.ToString("C"));
 Console.WriteLine("Longest anyone must work: " + longestHours.ToString("F2"));
+
+
 
 static double FuelCost(double miles, double MilesPerGallon, double PricePerGallon)
 {
@@ -88,9 +108,14 @@ static double FuelCost(double miles, double MilesPerGallon, double PricePerGallo
 }
 static double TakeHomePay(double hours, double hourlyRate, double taxRate)
 {
-    
+   double grossPay = hours * hourlyRate ;
+   double taxWithHeld = grossPay * taxRate ;
+   double takeHomePay = grossPay - taxWithHeld ;
+
+   return takeHomePay ; 
 }
 
 static double HoursToCover(double amountOwed, double takeHomePerHour)
 {
+  return amountOwed / takeHomePerHour ;
 }    
