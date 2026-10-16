@@ -46,8 +46,8 @@ double tripTotal = fuelCost + pizzaCost ;
 
 Console.WriteLine("=== Part 1: The Trip ===") ;
 Console.WriteLine("Fuel cost: " + fuelCost.ToString("C"));
-Console.WriteLine("Pizza Cost: " + pizzaCost.ToString("C"));
-Console.WriteLine("Trip Total: " + tripTotal.ToString("C"));
+Console.WriteLine("Pizza cost: " + pizzaCost.ToString("C"));
+Console.WriteLine("Trip total: " + tripTotal.ToString("C"));
 
 //Part 2
 
@@ -91,7 +91,7 @@ Console.WriteLine(names[i] + ": takes home "
 + " for " + hoursWorked[i].ToString("F0")
 + " hours, " + takeHomePerHour.ToString("C")
 + " per hour, must work "
-+ mustWorkHours.ToString("F2") + " hours ");
++ mustWorkHours.ToString("F2") + " hours");
 
 }
 
